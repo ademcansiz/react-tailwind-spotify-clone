@@ -1,8 +1,17 @@
+import SibeBar from "components/Sibebar";
+import Bottombar from "components/Bottombar";
+import Content from "components/Content";
+import { BrowserRouter as Router } from "react-router-dom";
+
 function App() {
   return (
-    <div>
-      hello
-    </div>
+    <Router>
+      <div className="wrapper">
+        <SibeBar></SibeBar>
+        <Content></Content>
+      </div>
+      <Bottombar></Bottombar>
+    </Router>
   );
 }
 
