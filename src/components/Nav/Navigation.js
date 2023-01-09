@@ -6,11 +6,11 @@ function Navigation() {
     const navigate = useNavigate();
   return (
     <nav className='flex items-center gap-x-2'>
-        <button onClick={() => navigate(-1)} className='w-8 h-8 flex items-center justify-center rounded-full bg-white opacity-70'>
-            <Icon name={"left"} size={"22"} className='text-white'></Icon>
+        <button onClick={() => navigate(-1)} className='text-white w-8 h-8 flex items-center justify-center rounded-full bg-black opacity-70'>
+            <Icon name={"left"} size={"22"} ></Icon>
         </button>
-        <button onClick={() => navigate(1)} className='w-8 h-8 flex items-center justify-center rounded-full bg-white opacity-70'>
-            <Icon name={"right"} size={"22"} className="text-white"></Icon>
+        <button onClick={() => navigate(1)} className='text-white w-8 h-8 flex items-center justify-center rounded-full bg-black opacity-70'>
+            <Icon name={"right"} size={"22"}></Icon>
         </button>
     </nav>
   )

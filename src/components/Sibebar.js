@@ -8,7 +8,7 @@ import Download from './Sidebar/Download';
 
 function SibeBar() {
   return (
-        <aside className='w-60 pt-6 flex flex-col bg-black' >
+        <aside className='w-60 pt-6 flex flex-col bg-black flex-shrink-0'>
             <a className='mb-7 px-6'>
             <img src={logo} className="h-10"></img>
             </a>

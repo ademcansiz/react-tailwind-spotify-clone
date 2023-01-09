@@ -58,27 +58,45 @@ const DownloadIcon= ({size})=>{
 }
 
 const LeftIcon= ({size})=>{
-  return (
-    <svg role="img" height={size} width={size} aria-hidden="true"  viewBox="0 0 24 24" data-encore-id="icon">
-      <path d="M15.957 2.793a1 1 0 010 1.414L8.164 12l7.793 7.793a1 1 0 11-1.414 1.414L5.336 12l9.207-9.207a1 1 0 011.414 0z">
-    </path></svg>
-  )
+	return (
+		<svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+			<polyline stroke="currentColor" points="16 4 7 12 16 20" fill="none" />
+		</svg>
+	)
 }
 
 const RightIcon= ({size})=>{
   return (
-    <svg  role="img" height={size} width={size} aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon">
-     <path d="M8.043 2.793a1 1 0 000 1.414L15.836 12l-7.793 7.793a1 1 0 101.414 1.414L18.664 12 9.457 2.793a1 1 0 00-1.414 0z">
-    </path></svg>
+<svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+  <polyline stroke="currentColor" points="8 4 17 12 8 20" fill="none">
+  </polyline></svg>
   )
 }
 
-const DownIcon= ({size})=>{
-  return (
-    <svg  role="img" height={size} width={size} aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16" data-encore-id="icon">
-    <path className="text-white" d="M14 6l-6 6-6-6h12z"></path></svg>
-  )
+const DownIcon = ({ size }) => {
+	return (
+		<svg viewBox="0 0 16 16" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+			<path fill="currentColor" d="M3 6l5 5.794L13 6z" />
+		</svg>
+	)
 }
+
+const HesapIcon = ({ size }) => {
+	return (
+		<svg viewBox="0 0 16 16" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+			<path fill="currentColor" d="M15 7V1H9v1h4.29L7.11 8.18l.71.71L14 2.71V7h1zM1 15h12V9h-1v5H2V4h5V3H1v12z" />
+		</svg>
+	)
+}
+
+const PlayIcon = ({ size }) => {
+	return (
+		<svg viewBox="0 0 24 24" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+			<polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor" />
+		</svg>
+	)
+}
+
 
 
 
@@ -93,7 +111,9 @@ const Icon = ({name,size = 24})=>{
         download:DownloadIcon,
         left:LeftIcon,
         right:RightIcon,
-        down:DownIcon
+        down:DownIcon,
+        hesap:HesapIcon,
+        play:PlayIcon,
     }
 
     const Component = icons[name]
