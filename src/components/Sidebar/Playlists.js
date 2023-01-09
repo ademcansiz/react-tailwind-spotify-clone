@@ -7,7 +7,7 @@ function Playlists() {
      {new Array(50).fill(
        <Link className='text-s text-link hover:text-white flex h-8 items-center'>
        Playlist
-     </Link>
+       </Link>
      )}
     </nav>
   )

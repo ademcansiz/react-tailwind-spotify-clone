@@ -47,7 +47,7 @@ const FavIcon= ({size})=>{
 
 const DownloadIcon= ({size})=>{
   return (
-    <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+    <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" className="Svg-sc-ytk21e-0 uPxdw">
       <path fill="currentColor" d="M12 3a9 9 0 100 18 9 9 0 000-18zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z">
       </path>
 
@@ -56,6 +56,31 @@ const DownloadIcon= ({size})=>{
     </svg>
   )
 }
+
+const LeftIcon= ({size})=>{
+  return (
+    <svg role="img" height={size} width={size} aria-hidden="true"  viewBox="0 0 24 24" data-encore-id="icon">
+      <path d="M15.957 2.793a1 1 0 010 1.414L8.164 12l7.793 7.793a1 1 0 11-1.414 1.414L5.336 12l9.207-9.207a1 1 0 011.414 0z">
+    </path></svg>
+  )
+}
+
+const RightIcon= ({size})=>{
+  return (
+    <svg  role="img" height={size} width={size} aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon">
+     <path d="M8.043 2.793a1 1 0 000 1.414L15.836 12l-7.793 7.793a1 1 0 101.414 1.414L18.664 12 9.457 2.793a1 1 0 00-1.414 0z">
+    </path></svg>
+  )
+}
+
+const DownIcon= ({size})=>{
+  return (
+    <svg  role="img" height={size} width={size} aria-hidden="true" className="Svg-sc-ytk21e-0 uPxdw eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16" data-encore-id="icon">
+    <path className="text-white" d="M14 6l-6 6-6-6h12z"></path></svg>
+  )
+}
+
+
 
 const Icon = ({name,size = 24})=>{
 
@@ -66,6 +91,9 @@ const Icon = ({name,size = 24})=>{
         plus:PlusIcon,
         fav:FavIcon,
         download:DownloadIcon,
+        left:LeftIcon,
+        right:RightIcon,
+        down:DownIcon
     }
 
     const Component = icons[name]
