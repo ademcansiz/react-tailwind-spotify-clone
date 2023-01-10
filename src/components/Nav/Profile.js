@@ -8,7 +8,7 @@ function Profile() {
     avatar : "https://i.scdn.co/image/ab6775700000ee85e568e13008a25984fec63fc4"
   }
   return (
-    <Menu as={"nav"} className="relative text-white">
+    <Menu as={"nav"} className="relative text-white z-10">
       {({open})=>(
           <>
               <Menu.Button className={`flex items-center h-8 rounded-3xl  text-white pr-2 hover:bg-active ${open ? "bg-active" :"bg-black" } `}> 
