@@ -741,6 +741,10 @@ html,body,#root {
   width: 40%;
 }
 
+.w-\[5\.813rem\] {
+  width: 5.813rem;
+}
+
 .min-w-\[\] {
   min-width: ;
 }
@@ -759,6 +763,10 @@ html,body,#root {
 
 .max-w-\[45\.125rem\] {
   max-width: 45.125rem;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-auto {
@@ -1021,6 +1029,10 @@ html,body,#root {
 
 .text-s {
   font-size: 0.813rem;
+}
+
+.text-\[0\.688rem\] {
+  font-size: 0.688rem;
 }
 
 .font-semibold {

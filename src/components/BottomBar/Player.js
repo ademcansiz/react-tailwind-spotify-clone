@@ -1,13 +1,30 @@
 import { Icon } from 'Icons'
 import { Range, getTrackBackground } from 'react-range'
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import {useAudio} from 'react-use';
+import SecondsToTime from 'components/Utils';
+import CustomRange from "../CustomRange"
 
 function Player() {
+    const [audio, state, controls, ref] = useAudio({
+        src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+        autoPlay: true,
+      });
 
-    const step = 0.1;
-    const min = 0;
-    const max = 100;
-    const [values,setValues]=useState([50]);
+      const volumeIcon = useMemo(()=>{
+        if (state.volume == 0 || state.muted ) {
+                return "volumeMuted"
+        }
+        if (state.volume > 0 && state.volume < 0.33) {
+            return "volumeLow"
+        }   
+        if (state.volume >= 0.33 && state.volume < 0.66) {
+        return "volumeNormal"
+        }
+        return "volumeFull"
+      })
+
+
   return (
     <div className='flex items-center justify-between h-full px-4 text-white'>
       <div className='min-w-[11.25rem] w-[30%] '>
@@ -21,8 +38,8 @@ function Player() {
             <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
                 <Icon size={16} name={"playerPrev"}></Icon>
             </button>
-            <button className='w-8 h-8 flex items-center justify-center bg-white rounded-full text-black hover:scale-[1.06]'>
-                <Icon size={16} name={"play"}></Icon>
+            <button onClick={controls[state?.playing ? "pause" : "play"]} className='w-8 h-8 flex items-center justify-center bg-white rounded-full text-black hover:scale-[1.06]'>
+                <Icon size={16} name={state?.playing ? "pause" : "play"}></Icon>
             </button>
             <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
                 <Icon size={16} name={"playerNext"}></Icon>
@@ -31,44 +48,39 @@ function Player() {
                 <Icon size={16} name={"repeat"}></Icon>
             </button>
         </div>
-        <div className='w-full'>
-        <Range
-            values={values}
-            step={step}
-            min={min}
-            max={max}
-            onChange={(values) => setValues(values)}
-            renderTrack={({ props, children }) => (
-                <div onMouseDown={props.onMouseDown} onTouchStart={props.onTouchStart} className="w-full h-7 flex group" style={props.style}>
-                    <div ref={props.ref} className="h-1 w-full rounded-md self-center" 
-                     style={{
-                            background: getTrackBackground({
-                                values: [values],
-                                colors: ["#1db954", "#535353"],
-                                min,
-                                max 
-                            })
-                        }}
-                    >
-                        {children}
-                    </div>
-                </div>
-            )}
-            renderThumb={({ props, isDragged }) => (
-                <div
-                    {...props}
-                    className={`h-3 w-3 rounded-full transition-opacity bg-white ${!isDragged ? 'opacity-0' : ''} group-hover:opacity-100`}
-                    style={{
-                        ...props.style,
-                        boxShadow: "0px 2px 4px 0 rgb(0 0 0 / 50%)"
-                    }}
-                />
-            )}
-        />
+        <div className='w-full flex items-center gap-x-2'>
+            {audio}
+            <div className='text-[0.688rem] text-white text-opacity-70'>
+            {SecondsToTime(state?.time)}
+            </div>
+            <CustomRange step={0.1} min={0} max={state?.duration || 1} value={state?.time} onChange={value=> controls.seek(value)}  ></CustomRange>
+        <div className='text-[0.688rem] text-white text-opacity-70'>
+            {SecondsToTime(state?.duration)}
+        </div>
         </div>
       </div>
-      <div className='min-w-[11.25rem] w-[30%] flex justify-end'>
-        sağ
+      <div className='min-w-[11.25rem] w-[30%] flex items-center justify-end'>
+        <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+                <Icon size={16} name={"lyrics"}></Icon>
+        </button>
+        <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+                <Icon size={16} name={"queue"}></Icon>
+        </button>
+        <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+                <Icon size={16} name={"device"}></Icon>
+        </button>
+        <button onClick={controls[state.muted ? "unmute" : "mute"]} className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+                <Icon size={16} name={volumeIcon}></Icon>
+        </button>
+        <div className='max-w-full w-[5.813rem]'>
+        <CustomRange step={0.01} min={0} max={1} value={state.muted ? 0 : state?.volume} onChange={value=> {
+            controls.unmute()
+            controls.volume(value)
+            }}  ></CustomRange>
+        </div>
+        <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+                <Icon size={16} name={"full"}></Icon>
+        </button>
       </div>
 
     </div>
