@@ -5,8 +5,13 @@ import { Link } from "react-router-dom";
 import { Icon } from 'Icons';
 import Playlists from './Sidebar/Playlists';
 import Download from './Sidebar/Download';
+import { useSelector } from 'react-redux';
+import SidebarCover from './Sidebar/SidebarCover';
 
 function SibeBar() {
+
+  const sidebar = useSelector(state => state.player.sidebar)
+
   return (
         <aside className='w-60 pt-6 flex flex-col bg-black flex-shrink-0'>
             <a className='mb-7 px-6'>
@@ -31,6 +36,8 @@ function SibeBar() {
 
             <Playlists></Playlists>
             <Download></Download>
+
+            {sidebar && <SidebarCover></SidebarCover>}
         </aside>
 
   )
