@@ -19,7 +19,7 @@ function Home() {
     description: "Artist",
     image : "https://i.scdn.co/image/ab67616d00001e02fe178404993bafa3cfe697b1",
     type: "artist",
-    src: "../mp3/bu-yuzden.mp3"
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id:3,
@@ -28,7 +28,7 @@ function Home() {
     description: "Ferdinin Podcastleri... ",
     image : "https://i.scdn.co/image/ab67616d0000b273f634e40d81228627aaed9caa",
     type : "podcast",
-    src: "../mp3/bana-sor.mp3"
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id:4,
@@ -37,7 +37,7 @@ function Home() {
     description: "İhanetten Geri Kalanlar",
     image : "https://i.scdn.co/image/ab67616d00001e02e935e29e5fd45a84a91bc3e5",
     type : "album",
-    src: "../mp3/uzunlar.mp3"
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id:5,
@@ -46,7 +46,7 @@ function Home() {
     description: "Duygularım",
     image : "https://i.scdn.co/image/ab67616d0000b273e43a8cef01b18891b3d37031",
     type : "album",
-    src: "../mp3/kendime-yalan-soyledim.mp3"
+    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
 ]
 
