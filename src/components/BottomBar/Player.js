@@ -1,16 +1,22 @@
 import { Icon } from 'Icons'
 import { Range, getTrackBackground } from 'react-range'
-import { useMemo, useState,useEffect } from 'react';
-import {useAudio} from 'react-use';
+import { useMemo, useState,useEffect, useRef } from 'react';
+import {useAudio, useFullscreen, useToggle} from 'react-use';
 import SecondsToTime from 'components/Utils';
 import CustomRange from "../CustomRange"
 import { useDispatch, useSelector } from 'react-redux';
 import { setControls,setPlaying,setSideBar } from 'stores/PlayerSlice';
+import FullScreenPlayer from "../FullScreenPlayer"
+
 
 function Player() {
-
   const {current, sidebar} = useSelector(state => state.player)
   const dispatch = useDispatch();
+
+  const fsref = useRef();
+  const [show,toggle] = useToggle();
+  const isFullscreen=useFullscreen(fsref,show,{onclose:()=>toggle(false)})
+
     const [audio, state, controls, ref] = useAudio({
         src: current?.src,
         autoPlay: true,
@@ -70,7 +76,6 @@ function Player() {
             </div>
         }
       </div>
-      
       <div className='flex flex-col items-center max-w-[45.125rem] px-4 w-[40%]'>
         <div className='flex items-center gap-x-2'>
             <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
@@ -119,11 +124,14 @@ function Player() {
             controls.volume(value)
             }}  ></CustomRange>
         </div>
-        <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
+        <button onClick={()=>toggle()} className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:opacity-100'>
                 <Icon size={16} name={"full"}></Icon>
         </button>
       </div>
 
+      <div ref={fsref}>
+        {isFullscreen && <FullScreenPlayer toggle={toggle} controls={controls} state={state}></FullScreenPlayer>}
+      </div>
     </div>
   )
 }
