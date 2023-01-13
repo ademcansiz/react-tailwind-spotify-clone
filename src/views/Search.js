@@ -58,10 +58,10 @@ function Search() {
 	}, [favoritesRef])
 
       const slideNext =()=>{
-        favoritesRef.current.scrollLeft += favoritesRef.current.offsetWidth - 200
+        favoritesRef.current.scrollLeft += favoritesRef.current.offsetWidth - 400
       }
       const slidePrev =()=>{
-        favoritesRef.current.scrollLeft -= favoritesRef.current.offsetWidth - 200
+        favoritesRef.current.scrollLeft -= favoritesRef.current.offsetWidth - 400
       }
   return (
     <>

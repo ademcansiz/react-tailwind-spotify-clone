@@ -19,7 +19,7 @@ function Home() {
     description: "Artist",
     image : "https://i.scdn.co/image/ab67616d00001e02fe178404993bafa3cfe697b1",
     type: "artist",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    src: "https://freesound.org/data/previews/612/612092_7037-lq.mp3"
   },
   {
     id:3,
@@ -28,7 +28,7 @@ function Home() {
     description: "Ferdinin Podcastleri... ",
     image : "https://i.scdn.co/image/ab67616d0000b273f634e40d81228627aaed9caa",
     type : "podcast",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    src: "https://freesound.org/data/previews/612/612087_1648170-lq.mp3"
   },
   {
     id:4,
@@ -37,7 +37,7 @@ function Home() {
     description: "İhanetten Geri Kalanlar",
     image : "https://i.scdn.co/image/ab67616d00001e02e935e29e5fd45a84a91bc3e5",
     type : "album",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    src: "https://freesound.org/data/previews/612/612085_28867-lq.mp3"
   },
   {
     id:5,
@@ -46,7 +46,7 @@ function Home() {
     description: "Duygularım",
     image : "https://i.scdn.co/image/ab67616d0000b273e43a8cef01b18891b3d37031",
     type : "album",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    src: "https://freesound.org/data/previews/612/612095_5674468-lq.mp3"
   },
 ]
 
